@@ -284,10 +284,10 @@
             
             <!-- رأس البطاقة: الشعار والصورة -->
             <header class="card-header">
-                <!-- !! صورة الشعار المؤقتة !! -->
-                <img src="https://placehold.co/120x60/005A9C/FFFFFF?text=Nizar+Travel&font=cairo" alt="شعار Nizar Travel" class="logo">
-                <!-- !! صورتك الشخصية المؤقتة !! -->
-                <img src="https://placehold.co/90x90/eeeeee/333333?text= صورتك &font=cairo" alt="صورة صلاح الدين بن لخضر" class="profile-pic">
+                <!-- !! تم التعديل: ضع 'logo.png' في نفس المجلد !! -->
+                <img src="logo.png" alt="شعار Nizar Travel" class="logo" onerror="this.src='https://placehold.co/120x60/005A9C/FFFFFF?text=Nizar+Travel&font=cairo'; this.onerror=null;">
+                <!-- !! تم التعديل: ضع 'profile.png' في نفس المجلد !! -->
+                <img src="profile.png" alt="صورة صلاح الدين بن لخضر" class="profile-pic" onerror="this.src='https://placehold.co/90x90/eeeeee/333333?text= صورتك &font=cairo'; this.onerror=null;">
             </header>
 
             <!-- معلومات الاتصال -->
@@ -298,24 +298,23 @@
 
             <!-- روابط التواصل الاجتماعي -->
             <nav class="contact-links">
-                <!-- !! قم بتغيير الأرقام والروابط هنا !! -->
-                <a href="tel:+213000000000" class="link-button phone">
+                <!-- !! تم تحديث الروابط والأرقام !! -->
+                <a href="tel:+213797099620" class="link-button phone">
                     <i class="fas fa-phone"></i> اتصل بي
                 </a>
-                <a href="https://wa.me/213000000000" target="_blank" class="link-button whatsapp">
+                <a href="https://wa.me/213797099620" target="_blank" class="link-button whatsapp">
                     <i class="fab fa-whatsapp"></i> واتساب
                 </a>
-                <a href="https://t.me/username" target="_blank" class="link-button telegram">
+                <a href="https://t.me/+213797099620" target="_blank" class="link-button telegram">
                     <i class="fab fa-telegram"></i> تلجرام
                 </a>
-                <a href="https://youtube.com/channel/..." target="_blank" class="link-button youtube">
+                <a href="https://youtube.com/@salahvlogdz8610?si=uhQ1w4DORFc8oaHU" target="_blank" class="link-button youtube">
                     <i class="fab fa-youtube"></i> يوتيوب
                 </a>
-                <a href="https://nizartravel.com" target="_blank" class="link-button website">
-                    <i class="fas fa-globe"></i> موقع الوكالة
+                <a href="https://maps.app.goo.gl/SuxDU68sgz36Coa19" target="_blank" class="link-button website">
+                    <i class="fas fa-map-marker-alt"></i> موقعنا
                 </a>
-                <!-- !! تمت إضافة رابط الفيسبوك هنا !! -->
-                <a href="https://facebook.com/your-page-url" target="_blank" class="link-button facebook">
+                <a href="https://www.facebook.com/share/18eQbdRM2A/" target="_blank" class="link-button facebook">
                     <i class="fab fa-facebook"></i> فيسبوك
                 </a>
             </nav>
@@ -357,20 +356,20 @@
             const saveContactBtn = document.getElementById("save-contact-btn");
 
             saveContactBtn.addEventListener("click", () => {
-                // !! قم بتعبئة بياناتك الحقيقية هنا !!
+                // !! تم تحديث بياناتك الحقيقية !!
                 const contactInfo = {
                     prefix: "", // تم نزع "الأستاذ" بناء على طلبك
                     firstName: "صلاح الدين",
                     lastName: "بن لخضر",
                     organization: "Nizar Travel",
                     title: "سياحة وسفر",
-                    phone: "+213000000000", // رقم هاتفك مع رمز الدولة
+                    phone: "+213797099620", // رقم هاتفك مع رمز الدولة
                     email: "info@nizartravel.com", // ايميلك (اختياري)
-                    website: "https://nizartravel.com", // موقع الوكالة
-                    whatsapp: "https://wa.me/213000000000", // رابط الواتساب
-                    telegram: "https://t.me/username", // رابط التلجرام
-                    youtube: "https://youtube.com/channel/...", // رابط يوتيوب
-                    facebook: "https://facebook.com/your-page-url" // !! رابط الفيسبوك المضاف !!
+                    website: "https://maps.app.goo.gl/SuxDU68sgz36Coa19", // موقع الوكالة
+                    whatsapp: "https://wa.me/213797099620", // رابط الواتساب
+                    telegram: "https://t.me/+213797099620", // رابط التلجرام
+                    youtube: "https://youtube.com/@salahvlogdz8610?si=uhQ1w4DORFc8oaHU", // رابط يوتيوب
+                    facebook: "https://www.facebook.com/share/18eQbdRM2A/" // !! رابط الفيسبوك المضاف !!
                 };
 
                 // إنشاء محتوى ملف VCF
@@ -454,6 +453,8 @@ END:VCARD`;
     <!-- --- نهاية ملف JavaScript --- -->
 </body>
 </html>
+
+
 
 
 
