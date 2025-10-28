@@ -1,392 +1,457 @@
 <!DOCTYPE html>
+<!-- 
+  مرحباً أستاذ صلاح الدين،
+  هذا هو ملف المعاينة المدمج. لقد قمت بوضع الـ CSS والـ JavaScript
+  داخل ملف الـ HTML هذا مباشرة لتسهيل المعاينة.
+
+  ملاحظات:
+  1. تم استبدال الصور (logo.png و profile.png) بروابط صور مؤقتة (placehold.co).
+  2. الروابط وأرقام الهواتف لا تزال بحاجة للتعديل من قبلك.
+-->
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بطاقة تواصل — الأستاذ صلاح الدين بن لخضر | Nizar Travel</title>
-  <meta name="description" content="بطاقة تواصل سريعة: هاتف، واتساب، تلغرام، بريد — مرشد سياحي | Nizar Travel." />
-  <meta name="theme-color" content="#0ea5e9">
-  <link rel="icon" href="logo.png">
-  <style>
-    :root{
-      --sky:#0ea5e9; --red:#ef4444; --black:#0b0f13; --white:#ffffff;
-      --muted:#9fb2c5; --ring: rgba(14,165,233,.35);
-      --surface:#0f172a; --green: #10b981; --purple: #8b5cf6;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Noto Sans,Helvetica,Arial;
-      background:
-        radial-gradient(60rem 60rem at 110% -10%, rgba(14,165,233,.18), transparent 50%),
-        radial-gradient(50rem 50rem at -10% 110%, rgba(239,68,68,.16), transparent 55%),
-        linear-gradient(180deg, #0b0f13 0%, #0b0f13 100%);
-      color:var(--white);
-      display:flex; align-items:center; justify-content:center;
-      padding:18px; line-height:1.55;
-    }
-    .card{
-      width:min(680px, 100%);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:22px;
-      box-shadow:0 20px 60px rgba(0,0,0,.4);
-      overflow:hidden;
-      backdrop-filter: blur(6px) saturate(130%);
-      position:relative;
-      isolation:isolate;
-      /* Animation Removed for debugging */
-      /* opacity: 0; */
-      /* transform: translateY(20px); */
-      /* animation: fadeInCard 0.6s ease-out 0.2s forwards; */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة الأستاذ صلاح الدين - Nizar Travel</title>
+    <!-- رابط مكتبة الأيقونات (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    /* @keyframes fadeInCard {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    } */
+    <!-- 
+      --- بدء ملف CSS ---
+      هنا كل أكواد التصميم
+    -->
+    <style>
+        /* إعدادات أساسية وتناسق الخطوط */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
-    .top{
-      display:flex; align-items:center; gap:14px; padding:16px 16px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(90deg, rgba(14,165,233,.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
-    }
-    .logo{width:60px; height:60px; border-radius:14px; overflow:hidden;
-      border:1px solid rgba(255,255,255,.14); background:#0b0f13; display:grid; place-items:center}
-    .logo img{width:100%; height:100%; object-fit:cover}
-    .who h1{margin:0; font-size:1.2rem; letter-spacing:.1px}
-    .who p{margin:.25rem 0 0; font-size:.92rem; color:#cfe3f5}
-    .avatar-wrap{margin-inline-start:auto; position:relative}
-    .avatar{
-      width:66px; height:66px; border-radius:999px; overflow:hidden;
-      border:2px solid rgba(14,165,233,.55);
-      background:#0b0f13; display:grid; place-items:center;
-      box-shadow:0 0 0 6px rgba(14,165,233,.12);
-      transition:box-shadow .25s ease, transform .12s ease;
-    }
-    .avatar img{width:100%; height:100%; object-fit:cover}
-    .avatar:hover{box-shadow:0 0 0 10px rgba(239,68,68,.18), 0 0 30px rgba(14,165,233,.35); transform:translateY(-1px)}
-    .grid{display:grid; gap:12px; padding:14px; grid-template-columns:1fr}
-    @media (min-width:560px){ .grid{grid-template-columns:1fr 1fr} }
-    .tile{
-      display:flex; align-items:center; gap:12px;
-      padding:14px; border-radius:16px; text-decoration:none; color:var(--white);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10);
-      transition:transform .08s ease, border-color .2s, box-shadow .2s, background .2s;
-      min-height:56px; position:relative; overflow:hidden;
-      cursor: pointer;
-      /* Animation Removed for debugging */
-      /* opacity: 0; */
-      /* transform: scale(0.95); */
-      /* animation: fadeInTile 0.5s ease-out forwards; */
-    }
-    /* Staggered animation delays for tiles */
-    /* .tile:nth-child(1) { animation-delay: 0.4s; }
-    .tile:nth-child(2) { animation-delay: 0.5s; }
-    .tile:nth-child(3) { animation-delay: 0.6s; }
-    .tile:nth-child(4) { animation-delay: 0.7s; }
-    .tile:nth-child(5) { animation-delay: 0.8s; }
-    .tile:nth-child(6) { animation-delay: 0.9s; }
-    .tile:nth-child(7) { animation-delay: 1.0s; }
-    .tile:nth-child(8) { animation-delay: 1.1s; }
-    .tile:nth-child(9) { animation-delay: 1.2s; } */
+        :root {
+            --primary-color: #005A9C; /* لون أزرق احترافي للسفر */
+            --secondary-color: #FDB813; /* لون ذهبي للمسة فخامة */
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-    /* @keyframes fadeInTile {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    } */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            direction: rtl;
+            color: var(--text-color);
+            padding: 20px 0; /* إضافة مساحة للهواتف */
+        }
 
-    .tile:hover{transform:translateY(-1px); border-color:var(--ring); box-shadow:0 0 0 6px var(--ring)}
-    .tile:active{transform:translateY(0)}
-    .tile.phone:hover{background:linear-gradient(90deg, rgba(14,165,233,.12), rgba(255,255,255,0))}
-    .tile.wa:hover{background:linear-gradient(90deg, rgba(16,185,129,.15), rgba(255,255,255,0))}
-    .tile.tg:hover{background:linear-gradient(90deg, rgba(59,130,246,.15), rgba(255,255,255,0))}
-    .tile.mail:hover{background:linear-gradient(90deg, rgba(239,68,68,.15), rgba(255,255,255,0))}
-    .tile.fb:hover{background:linear-gradient(90deg, rgba(23, 115, 234, .15), rgba(255,255,255,0))}
-    .tile.yt:hover{background:linear-gradient(90deg, rgba(255, 0, 0, .15), rgba(255,255,255,0))}
-    .tile.save:hover{background:linear-gradient(90deg, rgba(16,185,129,.15), rgba(255,255,255,0))}
-    .tile.share:hover{background:linear-gradient(90deg, rgba(139,92,246,.15), rgba(255,255,255,0))}
-    .tile.map:hover{background:linear-gradient(90deg, rgba(234, 179, 8, .15), rgba(255,255,255,0))}
+        .card-container {
+            perspective: 1000px; /* لإضافة عمق للتحريك */
+        }
 
-    .ico{width:20px; height:20px; flex:0 0 auto; display:inline-block}
-    .tt{font-size:.82rem; color:#b9c8d6}
-    .tv{font-size:1.06rem}
-    .actions{display:flex; gap:8px; margin-inline-start:auto}
-    .btn{
-      font-size:.78rem; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06); color:#e8f3ff; cursor:pointer;
-      transition:transform .08s ease, border-color .2s, box-shadow .2s;
-    }
-    .btn:hover{border-color:var(--ring); box-shadow:0 0 0 4px var(--ring)}
-    .foot{padding:11px 14px; border-top:1px dashed rgba(255,255,255,.12); font-size:.85rem; color:#cfd9e6; display:flex; justify-content:space-between; align-items:center}
-    .brand{display:flex; align-items:center; gap:6px}
-    .dot{width:8px; height:8px; border-radius:999px; background:var(--sky); box-shadow:0 0 0 4px rgba(14,165,233,.18)}
-    
-    /* Snackbar (Toast) Notification Styles */
-    #snackbar {
-      visibility: hidden;
-      min-width: 250px;
-      margin-left: -125px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 16px;
-      position: fixed;
-      z-index: 101;
-      left: 50%;
-      bottom: 30px;
-      font-size: 1rem;
-      opacity: 0;
-      transition: opacity 0.5s, visibility 0.5s;
-    }
-    #snackbar.show {
-      visibility: visible;
-      opacity: 1;
-    }
+        /* تصميم البطاقة الأساسية */
+        .business-card {
+            width: 380px;
+            max-width: 90vw;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 25px;
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.4s ease-out;
+            animation: fadeIn 1s ease-out;
+        }
 
-    @media (prefers-reduced-motion: reduce){
-      .tile,.avatar,.btn, #snackbar, .card{transition:none; animation: none;}
-    }
-    @media print{ body{background:#fff; color:#000; padding:0} .card{border:none; border-radius:0; box-shadow:none} }
-  </style>
+        /* تأثير تحريك عند فتح الصفحة */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* رأس البطاقة */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px; /* حجم الشعار */
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .profile-pic {
+            width: 90px; /* حجم الصورة الشخصية */
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 90, 156, 0.3);
+            object-fit: cover; /* لضمان ملء الصورة للدائرة */
+        }
+
+        /* معلومات البطاقة */
+        .card-body {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .card-body h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .card-body .title {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* تصميم أزرار الروابط */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-button i {
+            font-size: 1.2rem;
+            width: 30px; /* لضمان محاذاة النص */
+            margin-left: 12px;
+        }
+
+        /* تخصيص ألوان الأيقونات */
+        .link-button.phone { background-color: #e6f7ff; color: #005a9c; }
+        .link-button.whatsapp { background-color: #e6fef0; color: #25D366; }
+        .link-button.telegram { background-color: #e7f5ff; color: #0088cc; }
+        .link-button.youtube { background-color: #ffeeee; color: #FF0000; }
+        .link-button.website { background-color: #f0f0f0; color: #333; }
+        .link-button.facebook { background-color: #e7f0ff; color: #1877F2; } /* لون الفيسبوك */
+
+        /* تأثيرات حركة للأزرار */
+        .link-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        /* أزرار الإجراءات السفلية */
+        .card-actions {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .card-actions button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* زر الحفظ */
+        #save-contact-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        #save-contact-btn:hover {
+            background-color: #004a80;
+            transform: scale(1.03);
+        }
+
+        /* زر الـ QR */
+        #show-qr-btn {
+            background-color: var(--secondary-color);
+            color: #333;
+        }
+        #show-qr-btn:hover {
+            background-color: #eab00f;
+            transform: scale(1.03);
+        }
+
+        /* تصميم نافذة الـ QR Code */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none; /* مخفي افتراضياً */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            max-width: 85vw; /* لضمان مناسبته للشاشات الصغيرة */
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+
+        #qrcode-container {
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* تعديل لضمان ظهور الـ QR Code بشكل صحيح */
+        #qrcode-container img,
+        #qrcode-container canvas {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 250px; /* تحديد حجم أقصى */
+        }
+
+        .qr-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    </style>
+    <!-- --- نهاية ملف CSS --- -->
+
 </head>
 <body>
-  <main class="card" aria-label="بطاقة تواصل — الأستاذ صلاح الدين بن لخضر">
-    <header class="top">
-      <div class="logo">
-        <!-- ضع شعار الشركة باسم logo.png بجوار هذا الملف -->
-        <img src="logo.png" alt="Nizar Travel Logo" onerror="this.style.display='none'">
-      </div>
-      <div class="who">
-        <h1>الأستاذ صلاح الدين بن لخضر</h1>
-        <p>مرشد سياحي — Nizar Travel | سياحة وسفر</p>
-      </div>
-      <div class="avatar-wrap">
-        <!-- ضع صورتك الشخصية باسم avatar.jpg بجوار هذا الملف -->
-        <div class="avatar">
-          <img src="avatar.jpg" alt="صورة شخصية" onerror="this.style.display='none'">
+
+    <div class="card-container">
+        <!-- البطاقة الأساسية -->
+        <div class="business-card">
+            
+            <!-- رأس البطاقة: الشعار والصورة -->
+            <header class="card-header">
+                <!-- !! صورة الشعار المؤقتة !! -->
+                <img src="https://placehold.co/120x60/005A9C/FFFFFF?text=Nizar+Travel&font=cairo" alt="شعار Nizar Travel" class="logo">
+                <!-- !! صورتك الشخصية المؤقتة !! -->
+                <img src="https://placehold.co/90x90/eeeeee/333333?text= صورتك &font=cairo" alt="صورة صلاح الدين بن لخضر" class="profile-pic">
+            </header>
+
+            <!-- معلومات الاتصال -->
+            <div class="card-body">
+                <h1>صلاح الدين بن لخضر</h1>
+                <p class="title">Nizar Travel - سياحة وسفر</p>
+            </div>
+
+            <!-- روابط التواصل الاجتماعي -->
+            <nav class="contact-links">
+                <!-- !! قم بتغيير الأرقام والروابط هنا !! -->
+                <a href="tel:+213000000000" class="link-button phone">
+                    <i class="fas fa-phone"></i> اتصل بي
+                </a>
+                <a href="https://wa.me/213000000000" target="_blank" class="link-button whatsapp">
+                    <i class="fab fa-whatsapp"></i> واتساب
+                </a>
+                <a href="https://t.me/username" target="_blank" class="link-button telegram">
+                    <i class="fab fa-telegram"></i> تلجرام
+                </a>
+                <a href="https://youtube.com/channel/..." target="_blank" class="link-button youtube">
+                    <i class="fab fa-youtube"></i> يوتيوب
+                </a>
+                <a href="https://nizartravel.com" target="_blank" class="link-button website">
+                    <i class="fas fa-globe"></i> موقع الوكالة
+                </a>
+                <!-- !! تمت إضافة رابط الفيسبوك هنا !! -->
+                <a href="https://facebook.com/your-page-url" target="_blank" class="link-button facebook">
+                    <i class="fab fa-facebook"></i> فيسبوك
+                </a>
+            </nav>
+
+            <!-- الأزرار التفاعلية -->
+            <footer class="card-actions">
+                <button id="save-contact-btn">
+                    <i class="fas fa-address-card"></i> حفظ في جهات الاتصال
+                </button>
+                <button id="show-qr-btn">
+                    <i class="fas fa-qrcode"></i> شارك بطاقتي (QR)
+                </button>
+            </footer>
         </div>
-      </div>
-    </header>
+    </div>
 
-    <section class="grid">
-      <!-- Phone -->
-      <a class="tile phone" href="tel:+213797099620" title="اتصال">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M2 3h4l2 5-3 2a16 16 0 0 0 9 9l2-3 5 2v4a2 2 0 0 1-2 2c-9.94 0-18-8.06-18-18A2 2 0 0 1 2 3z"/></svg>
-        <div><div class="tt">الهاتف</div><div class="tv" dir="ltr">+213 797 099 620</div></div>
-        <div class="actions">
-          <button class="btn" id="copyPhone">نسخ</button>
+    <!-- نافذة الـ QR Code (مخفية) -->
+    <div id="qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>امسح الكود لمشاركة البطاقة</h2>
+            <div id="qrcode-container"></div>
+            <!-- تم حذف السطر الذي كان هنا بناء على طلبك -->
         </div>
-      </a>
+    </div>
 
-      <!-- WhatsApp with pre-filled message -->
-      <a class="tile wa" id="waLink" href="https://wa.me/213797099620?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B3%D8%AA%D8%A7%D8%B0%20%D8%B5%D9%84%D8%A7%D8%AD%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AC%D9%88%D9%84%D8%A9%20%D9%85%D8%B9%20Nizar%20Travel." target="_blank" rel="noopener" title="WhatsApp">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.49A11.87 11.87 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.1 1.6 5.88L0 24l6.28-1.64A12 12 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.51zM12 21.82c-1.98 0-3.9-.54-5.6-1.57l-.4-.24-3.72.97.99-3.62-.26-.43A9.77 9.77 0 0 1 2.18 12C2.18 6.55 6.55 2.18 12 2.18S21.82 6.55 21.82 12 17.45 21.82 12 21.82zm5.5-7.16c-.3-.15-1.78-.88-2.06-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.74-1.66-2.04-.18-.3-.02-.47.13-.62.13-.13.3-.34.45-.5.15-.17.2-.28.3-.48.1-.2.05-.37-.03-.52-.08-.15-.68-1.64-.93-2.25-.25-.6-.5-.5-.68-.5h-.57c-.2 0-.52.07-.8.37-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.2 5.07 4.49.71.31 1.26.49 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.78-.73 2.04-1.44.25-.71.25-1.32.17-1.45-.07-.12-.27-.2-.57-.35z"/></svg>
-        <div><div class="tt">واتساب</div><div class="tv">رسالة ترحيب جاهزة</div></div>
-        <div class="actions">
-          <button class="btn" id="copyWa">نسخ الرسالة</button>
-        </div>
-      </a>
-
-      <!-- Telegram deep link with fallback -->
-      <a class="tile tg" id="tgLink" href="tg://resolve?phone=213797099620" title="Telegram">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.52 8.8 19a1 1 0 0 0 1.6.8l2.4-1.92 3.98 2.9a1 1 0 0 0 1.56-.62l3.6-14.4A1 1 0 0 0 21 4L3.12 11.07a1 1 0 0 0 .02 1.86l4.3 1.59 9.97-6.16-8.37 7.16z"/></svg>
-        <div><div class="tt">تلغرام</div><div class="tv">مراسلة فورية</div></div>
-        <div class="actions">
-          <button class="btn" id="copyTg">نسخ المعرف</button>
-        </div>
-      </a>
-
-      <!-- Email -->
-      <a class="tile mail" href="mailto:contact@ts-gsm.dz?subject=%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%88%D9%84%D8%A9%20-%20Nizar%20Travel&body=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B3%D8%AA%D8%A7%D8%B0%20%D8%B5%D9%84%D8%A7%D8%AD%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%88%D9%84%D8%A9%20%D9%85%D8%B9%20Nizar%20Travel.">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13 2 6.76V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6.76L12 13zm10-9H2a2 2 0 0 0-2 2l12 7 12-7a2 2 0 0 0 2-2z"/></svg>
-        <div><div class="tt">البريد الإلكتروني</div><div class="tv">contact@ts-gsm.dz</div></div>
-      </a>
-
-      <!-- Facebook -->
-      <a class="tile fb" href="https://www.facebook.com/share/16BzHPJSAQ/" target="_blank" rel="noopener" title="Facebook">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
-        <div><div class="tt">فيسبوك</div></div>
-      </a>
-
-      <!-- YouTube -->
-      <a class="tile yt" href="https://youtube.com/@salahvlogdz8610?si=5pv4sxekhlQ-tp0r" target="_blank" rel="noopener" title="YouTube">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.187C21.35 6.44 20.83 5.86 20.09 5.617C18.61 5.25 12 5.25 12 5.25s-6.61 0-8.09.367C3.17 5.86 2.65 6.44 2.418 7.187C2.05 8.66 2.05 12 2.05 12s0 3.34.368 4.813c.232.74.752 1.32 1.492 1.563C5.39 18.75 12 18.75 12 18.75s6.61 0 8.09-.367c.74-.243 1.26-.823 1.492-1.563C21.95 15.34 21.95 12 21.95 12s0-3.34-.368-4.813zM9.75 14.85V9.15l4.5 2.85l-4.5 2.85z"/></svg>
-        <div><div class="tt">يوتيوب</div></div>
-      </a>
-      
-      <!-- Save Contact (vCard) -->
-      <a class="tile save" id="vCardSave" title="حفظ جهة الاتصال">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h14zm-7 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 8c0-3 6-3 6 0v1H7v-1zm10-4h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z"/></svg>
-        <div><div class="tt">حفظ في الهاتف</div><div class="tv">إضافة جهة اتصال</div></div>
-      </a>
-
-      <!-- Share Card -->
-      <a class="tile share" id="shareCard" title="مشاركة البطاقة">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6-5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 3.27L14.73 11 18 14.27V11c0-.1.02-.19.04-.28c.17-1.01.99-1.76 1.96-1.76v.01zM6 14c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0-5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0-5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm3.27 3L11 9.27V11c0-.1.02-.19.04-.28c.17-1.01.99-1.76 1.96-1.76v.01L9.27 11z"/></svg>
-        <div><div class="tt">مشاركة البطاقة</div><div class="tv">إرسال الرابط</div></div>
-      </a>
-      
-      <!-- Location -->
-      <a class="tile map" href="https://maps.app.goo.gl/zsMUHLmu33Tch7wy5" target="_blank" rel="noopener" title="الموقع على خرائط جوجل">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
-        <div><div class="tt">الموقع</div><div class="tv">باب الزوار، الجزائر العاصمة</div></div>
-      </a>
-
-    </section>
-
-    <footer class="foot">
-      <div class="brand"><span class="dot"></span><span>Nizar Travel — سياحة وسفر</span></div>
-      <div>© الأستاذ صلاح الدين بن لخضر</div>
-    </footer>
-  </main>
-
-  <!-- Snackbar placeholder -->
-  <div id="snackbar"></div>
-
-  <script>
-    // --- Toast Notification Function ---
-    function showToast(message) {
-      const snackbar = document.getElementById('snackbar');
-      if (!snackbar) return; // Guard clause
-      snackbar.textContent = message;
-      snackbar.className = 'show';
-      setTimeout(() => {
-        snackbar.className = snackbar.className.replace('show', '');
-      }, 3000); // Hide after 3 seconds
-    }
-
-    // --- Copy Buttons ---
-    const copyPhoneBtn = document.getElementById('copyPhone');
-    if (copyPhoneBtn) {
-      copyPhoneBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const phoneToCopy = '+213797099620';
-        try {
-          await navigator.clipboard.writeText(phoneToCopy);
-          showToast('تم نسخ الرقم: ' + phoneToCopy);
-        } catch (err) {
-          try {
-            const textArea = document.createElement("textarea");
-            textArea.value = phoneToCopy;
-            textArea.style.position = "fixed"; textArea.style.opacity = 0;
-            document.body.appendChild(textArea);
-            textArea.focus(); textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            showToast('تم نسخ الرقم: ' + phoneToCopy);
-          } catch (err) {
-            showToast('تعذّر النسخ تلقائيًا');
-          }
-        }
-      });
-    }
-
-    const copyWaBtn = document.getElementById('copyWa');
-    if (copyWaBtn) {
-      const waMsg = "مرحبا أستاذ صلاحالدين ، أريد التواصل بخصوص جولة مع Nizar Travel.";
-      copyWaBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        try { await navigator.clipboard.writeText(waMsg); showToast('تم نسخ رسالة واتساب الجاهزة'); } 
-        catch (err) { showToast('تعذّر النسخ تلقائيًا'); }
-      });
-    }
-
-    // Telegram: open tg:// else fallback to web
-    const tgLink = document.getElementById('tgLink');
-    if (tgLink) {
-      tgLink.addEventListener('click', function(e){
-        const start = Date.now();
-        setTimeout(function(){
-          if (document.hasFocus() && (Date.now() - start < 1500)){
-            window.location.href = 'https://t.me/SALAH911F';
-          }
-        }, 900);
-      });
-    }
+    <!-- مكتبة توليد الـ QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
-    // Copy Telegram username
-    const copyTgBtn = document.getElementById('copyTg');
-    if (copyTgBtn) {
-      const tgUsername = '@SALAH911F';
-      copyTgBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        try { await navigator.clipboard.writeText(tgUsername); showToast('تم نسخ معرّف تلغرام: ' + tgUsername); } 
-        catch (err) { showToast('تعذّر النسخ'); }
-      });
-    }
-    
-    // --- New Features ---
+    <!-- 
+      --- بدء ملف JavaScript ---
+      هنا كل الأكواد التفاعلية
+    -->
+    <script>
+        // الانتظار حتى يتم تحميل الصفحة بالكامل
+        document.addEventListener("DOMContentLoaded", () => {
 
-    // 1. Save Contact (vCard)
-    const vCardSaveBtn = document.getElementById('vCardSave');
-    if (vCardSaveBtn) {
-      vCardSaveBtn.addEventListener('click', () => {
-        const vCard = [
-          'BEGIN:VCARD',
-          'VERSION:3.0',
-          'FN:الأستاذ صلاح الدين بن لخضر', // Full Name
-          'ORG:Nizar Travel', // Organization
-          'TITLE:مرشد سياحي', // Title
-          'TEL;TYPE=CELL,VOICE:+213797099620', // Phone
-          'EMAIL:contact@ts-gsm.dz', // Email
-          'REV:' + new Date().toISOString(),
-          'END:VCARD'
-        ].join('\n');
-        
-        const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Salah-Nizar-Travel.vcf'; // Filename
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        
-        showToast('جاري تحميل جهة الاتصال...');
-      });
-    }
+            // --- 1. ميزة حفظ جهة الاتصال (VCard) ---
+            const saveContactBtn = document.getElementById("save-contact-btn");
 
-    // 2. Share Card (Web Share API)
-    const shareCardBtn = document.getElementById('shareCard');
-    if (shareCardBtn) {
-      shareCardBtn.addEventListener('click', async () => {
-        const shareData = {
-          title: 'بطاقة تواصل — الأستاذ صلاح الدين',
-          text: 'تفضل، هذه بطاقة التواصل الخاصة بي.',
-          url: window.location.href
-        };
-        
-        try {
-          if (navigator.share) {
-            await navigator.share(shareData);
-            // showToast('شكراً على المشاركة!'); // Optional: show toast on successful share
-          } else {
-            // Fallback for browsers that don't support native share
-            await navigator.clipboard.writeText(window.location.href);
-            showToast('تم نسخ رابط البطاقة! قم بلصقه لمشاركته.');
-          }
-        } catch (err) {
-          // Don't show error if user cancels share dialog
-          if (err.name !== 'AbortError') {
-            showToast('خطأ أثناء المشاركة: ' + err.message);
-          }
-        }
-      });
-    }
+            saveContactBtn.addEventListener("click", () => {
+                // !! قم بتعبئة بياناتك الحقيقية هنا !!
+                const contactInfo = {
+                    prefix: "", // تم نزع "الأستاذ" بناء على طلبك
+                    firstName: "صلاح الدين",
+                    lastName: "بن لخضر",
+                    organization: "Nizar Travel",
+                    title: "سياحة وسفر",
+                    phone: "+213000000000", // رقم هاتفك مع رمز الدولة
+                    email: "info@nizartravel.com", // ايميلك (اختياري)
+                    website: "https://nizartravel.com", // موقع الوكالة
+                    whatsapp: "https://wa.me/213000000000", // رابط الواتساب
+                    telegram: "https://t.me/username", // رابط التلجرام
+                    youtube: "https://youtube.com/channel/...", // رابط يوتيوب
+                    facebook: "https://facebook.com/your-page-url" // !! رابط الفيسبوك المضاف !!
+                };
 
-  </script>
+                // إنشاء محتوى ملف VCF
+                const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:${contactInfo.lastName};${contactInfo.firstName};;${contactInfo.prefix};
+FN:${contactInfo.firstName} ${contactInfo.lastName}
+ORG:${contactInfo.organization}
+TITLE:${contactInfo.title}
+TEL;TYPE=CELL;TYPE=VOICE;TYPE=pref:${contactInfo.phone}
+EMAIL;TYPE=PREF,INTERNET:${contactInfo.email}
+URL;TYPE=WORK:${contactInfo.website}
+URL;TYPE=WHATSAPP:${contactInfo.whatsapp}
+URL;TYPE=TELEGRAM:${contactInfo.telegram}
+URL;TYPE=YOUTUBE:${contactInfo.youtube}
+URL;TYPE=FACEBOOK:${contactInfo.facebook}
+END:VCARD`;
+
+                // إنشاء رابط لتحميل الملف
+                const blob = new Blob([vCardData], { type: "text/vcard;charset=utf-8" });
+                const url = URL.createObjectURL(blob);
+                
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = "Salah_Eddine_Nizar_Travel.vcf"; // اسم الملف عند الحفظ
+                
+                // تفعيل التحميل
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+
+
+            // --- 2. ميزة توليد وعرض QR Code ---
+            const showQrBtn = document.getElementById("show-qr-btn");
+            const modalOverlay = document.getElementById("qr-modal");
+            const closeModal = document.querySelector(".close-modal");
+            const qrContainer = document.getElementById("qrcode-container");
+            let qrCodeGenerated = false;
+
+            showQrBtn.addEventListener("click", () => {
+                // يتم توليد الكود مرة واحدة فقط
+                if (!qrCodeGenerated) {
+                    // ملاحظة: في بيئة المعاينة، قد يكون الرابط طويلاً أو "about:blank".
+                    // عند رفعه على موقعك الحقيقي، سيضع رابط الصفحة الصحيح.
+                    let currentUrl = window.location.href;
+                    if (currentUrl === 'about:blank') {
+                        currentUrl = 'https://nizartravel.com/card'; // رابط افتراضي للمعاينة
+                    }
+
+                    new QRCode(qrContainer, {
+                        text: currentUrl, // الرابط الذي يولده الكود هو رابط الصفحة الحالية
+                        width: 250,
+                        height: 250,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                    qrCodeGenerated = true;
+                }
+                
+                // إظهار النافذة
+                modalOverlay.style.display = "flex";
+            });
+
+            // وظيفة إغلاق النافذة
+            const hideModal = () => {
+                modalOverlay.style.display = "none";
+            };
+
+            // الإغلاق عند الضغط على (X) أو خارج النافذة
+            closeModal.addEventListener("click", hideModal);
+            modalOverlay.addEventListener("click", (e) => {
+                if (e.target === modalOverlay) {
+                    hideModal();
+                }
+            });
+
+        });
+    </script>
+    <!-- --- نهاية ملف JavaScript --- -->
 </body>
 </html>
 
